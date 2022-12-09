@@ -12,13 +12,9 @@ GVol_to_SWVol = LanguageChange(GreaterVolodnian, SouthwestVolodnian,
         (C(Labiodental), C(Bilabial))
     ),
 
-    ('Hardening',
-        (C(Fricative, Voiced), C(Plosive), (V, Pos)),
-    ),
-
     ('Long Vowel Shift',
         (V(Open, Central, Long), V(Open_mid, Front), (C(Alveolar, -Lateral), Pos)),
         (V(Open, Central, Long), V(Open_mid, Back, Rounded)),
-        ('ai', 'a^_'),
+        ((V(Open), V(Close)), V(Long)),
     ),
 )
