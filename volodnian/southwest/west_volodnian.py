@@ -18,5 +18,5 @@ SWVol_to_WVol = LanguageChange(SouthwestVolodnian, WestVolodnian,
 
     ('Onglide change',
         ('je', 'ja'),
-    )
+    ),
 )
