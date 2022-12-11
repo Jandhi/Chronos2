@@ -4,6 +4,10 @@ from core.chronos import *
 
 NortheastVolodnian = Language('Northeast Volodnian', 'NEVol')
 GVol_to_NEVol = LanguageChange(GreaterVolodnian, NortheastVolodnian,
+    ('Diphthong Merger',
+        (V(Close_mid), 'a', (Pos, V)),
+    ),
+    
     ('Diphthong reduction',
         ('au^n', 'O^_^n'),
         ('au', 'O^_'),
@@ -13,7 +17,9 @@ GVol_to_NEVol = LanguageChange(GreaterVolodnian, NortheastVolodnian,
 
     ('Great Collapse',
         ((V, C, V(Close, -Long)), (IF_ELSE(0, V(Long), V(Overlong), V(Lengthened)), IF_ELSE(2, V(Front), I(1, Palatalized), I(1))), Reversed),
-        ((C, V(Close, -Lengthened, -Long, -Overlong)), IF_ELSE(1, V(Front), I(0, Palatalized), I(0))),
+        ((C(Trill), V(Close, -Lengthened, -Long, -Overlong)), IF_ELSE(1, V(Front), I(0, Palatalized), I(0)), Pos),
+        ((C(Lateral), V(Close, -Lengthened, -Long, -Overlong)), IF_ELSE(1, V(Front), I(0, Palatalized), I(0)), Pos),
+        ((C, V(Close, -Lengthened, -Long, -Overlong)), IF_ELSE(1, V(Front), I(0, Palatalized), I(0)), Pos, (C, Pos)),
         (C(-Palatalized), C(Palatalized), (Pos, V(Front, Close, Lengthened))),
 
         # Cleaning up illegal palatals

@@ -21,7 +21,7 @@ MZob_to_CZob = LanguageChange(MiddleZobrozhne, CentralZobrozhne,
         ('j', 'i', (A(C, End), Pos, A(C, End))),
     ),
 
-    ('Hauta',
+    ('Haȝta',
         (C(Velar, Voiced, Fricative), 'u', (Pos, A(C, End))),
         ('uu', 'u^_'),
     ),

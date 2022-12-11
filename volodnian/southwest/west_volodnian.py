@@ -8,8 +8,9 @@ SWVol_to_WVol = LanguageChange(SouthwestVolodnian, WestVolodnian,
         (V(-Front), V(Front), (Pos, O(C), O(C), A(V(Front, Close), 'j'))),
     ),
 
-    ('Dental Shift',
+    ('Silibant Shift',
         (C(Alveolar, Fricative), C(Dental)),
+        (C(Postalveolar), C(Alveolar))
     ),
 
     ('Deaffrication',
