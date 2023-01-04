@@ -125,8 +125,9 @@ add_default(Tap, Voiced)
 Vocalic = Feature('vocalic')
 Lateral = Feature('lateral')
 Palatalized = Feature('palatalized')
+Labialized = Feature('labialized')
 Aspirated = Feature('aspirated')
 ConsonantFeatures = FeatureSet('consonant features', members=[
-    Vocalic, Lateral, Palatalized, Aspirated
+    Vocalic, Lateral, Palatalized, Labialized, Aspirated
 ], is_exclusive=False)
 add_requirement(ConsonantFeatures, Consonant)

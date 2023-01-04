@@ -42,7 +42,7 @@ def generate():
         # CRVN
         
         syllable_type_weights = {
-            'CV' : 15,
+            'CV' : 20,
             'CVN' : 2,
             'CRV' : 2,
             'CRVN' : 1,

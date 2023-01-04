@@ -18,6 +18,8 @@ SIPA = orth(
 
         ('ʲ', Palatalized),
         ('^j', Palatalized),
+        ('ʷ', Labialized),
+        ('^w', Labialized),
         ('\u0331', Stressed),
         ('._', Stressed),
         ('\'', Ejective),

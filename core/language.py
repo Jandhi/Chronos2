@@ -11,20 +11,24 @@ class Language:
         self.change_from_parent : LanguageChange = None
         self.children : list[Language] = []
 
-    def derive(self, word : Word, depth = 0, verbose = False, tab_amount = 2):
-        if isinstance(word, str):
-            word = SIPA.word(word)
+    def derive(self, words : list[Word], depth = 0, verbose = False, tab_amount = 2):
+        for i in range(len(words)):
+            if isinstance(words[i], str):
+                words[i] = SIPA.word(words[i])
 
-        word = word.copy()
         tab = ' ' * tab_amount
         
         if depth != 0:
-            word = self.change_from_parent.apply(word, tab * depth, verbose)
+            words = self.change_from_parent.apply(words, tab * depth, verbose)
         
-        print(f'{tab * depth}{self.short_form}: {word}')
+        word_str = ''
+        for word in words:
+            word_str = f'{word_str} {word}'
+
+        print(f'{tab * depth}{self.short_form}:{word_str}')
 
         for child in self.children:
-            child.derive(word, depth + 1, verbose, tab_amount)
+            child.derive(words, depth + 1, verbose, tab_amount)
 
 class LanguageChange:
     def __init__(self, parent : Language, child : Language, *steps) -> None:
@@ -39,25 +43,39 @@ class LanguageChange:
     def add_step(self, name, *sound_changes : SoundChange):
         self.steps.append((name, [sc(*contents) for contents in sound_changes]))
     
-    def apply(self, word : Word, tab = '', verbose = False) -> Word:
-        if isinstance(word, str):
-            word = SIPA.word(word)
+    def apply(self, words : list[Word], tab = '', verbose = False) -> Word:
 
-        word = word.copy()
+        for i in range(len(words)):
+            if isinstance(words[i], str):
+                words[i] = SIPA.word(words[i])
+
+        words = [word.copy() for word in words]
 
         for (name, sound_changes) in self.steps:
-            old_word = word
+            changed = False
+            old_words = [word.copy() for word in words]
 
-            for sc in sound_changes:
-                sc : SoundChange
-                new_word = sc.apply(word)
+            for i in range(len(words)):
+                for sc in sound_changes:
+                    sc : SoundChange
+                    old_word = words[i].copy()
+                    words[i] = sc.apply(words[i])
+
+                    if any(not s1.is_match(s2) for (s1, s2) in zip(old_word.sounds, words[i].sounds)):
+                        changed = True
+
+            if changed and verbose:
+                old_str = ''
+                for word in old_words:
+                    old_str = f'{old_str}{word} '
                 
+                new_str = ''
+                for word in words:
+                    new_str = f'{new_str}{word} '
 
-                word = new_word
+                grey = '\033[38;5;8m'
+                reset = '\033[0m'
 
-            if old_word != word and verbose:
-                print(f'{tab}{SIPA.transcribe(old_word)} -> {SIPA.transcribe(word)} [{name}]')
-            
-            old_word = word
+                print(f'{grey}{tab}{old_str}-> {new_str}[{name}]{reset}')
         
-        return word
+        return words

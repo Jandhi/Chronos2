@@ -8,6 +8,10 @@ GVol_to_SWVol = LanguageChange(GreaterVolodnian, SouthwestVolodnian,
         (V(-Long), None, (V, C, Pos, C, V)),
     ),
 
+    ('Coarticulate Shift',
+        ((C(Velar), 'v'), C(Labialized))
+    ),
+
     ('Labial Shift',
         (C(Labiodental), C(Bilabial))
     ),

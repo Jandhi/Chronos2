@@ -34,4 +34,9 @@ MZob_to_CZob = LanguageChange(MiddleZobrozhne, CentralZobrozhne,
         ((C(Postalveolar, Fricative), C(Fricative, Palatal, Voiced)), (I(0, Voiced), I(0, Voiced))),
         ((C(Postalveolar, Fricative), C(Fricative, Palatal, -Voiced)), (I(0, -Voiced), I(0, -Voiced))),
     ),
+
+    ('Palatalization Loss',
+        (C(Palatalized), (C(-Palatalized), 'j'), (Pos, V)),
+        (C(Palatalized), C(-Palatalized)),
+    ),
 )

@@ -32,6 +32,7 @@ NVol_to_OZob = LanguageChange(NorthVolodnian, OldZobrozhne,
     ),
 
     ('Palatal Simplification',
+        ('l^j', 'ji', (A(C, End), Pos, C)),
         ('l^j', 'j'),
         (C(Nasal, Palatalized), C(-Palatalized), (Pos, End)),
         ('j', 'i', (V, Pos, A(C, End)),), 
@@ -43,7 +44,7 @@ NVol_to_OZob = LanguageChange(NorthVolodnian, OldZobrozhne,
 
     # Leave this for somewhere else? bogda bodgyka > bozza bozzka
     ('Cluster Lenition',
-        (C(Voiced, Plosive), C(Fricative), (C(Voiced, Plosive), Pos)),
+        (C(Voiced, Plosive), C(Fricative), (C(Voiced, Plosive), Pos), (Pos, C)),
         (C(Bilabial, Fricative), C(Labiodental)),
     )
 )
