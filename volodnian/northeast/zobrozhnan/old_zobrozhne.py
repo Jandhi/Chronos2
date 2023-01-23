@@ -46,5 +46,9 @@ NVol_to_OZob = LanguageChange(NorthVolodnian, OldZobrozhne,
     ('Cluster Lenition',
         (C(Voiced, Plosive), C(Fricative), (C(Voiced, Plosive), Pos), (Pos, C)),
         (C(Bilabial, Fricative), C(Labiodental)),
-    )
+    ),
+
+    ('Nasal Cluster Shift',
+        (C(Nasal), C(Plosive), (Pos, C(Trill)))
+    ),
 )

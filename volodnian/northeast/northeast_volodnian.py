@@ -25,7 +25,8 @@ GVol_to_NEVol = LanguageChange(GreaterVolodnian, NortheastVolodnian,
 
         # Cleaning up illegal palatals
         (C(Palatalized, Postalveolar), X(-Palatalized)), 
-        (C(Palatalized, Palatal), X(-Palatalized)),        
+        (C(Palatalized, Palatal), X(-Palatalized)),
+        ('j', 'ji', (End, Pos, C)),        
     ),
 
     ('Voicing Assimilation',

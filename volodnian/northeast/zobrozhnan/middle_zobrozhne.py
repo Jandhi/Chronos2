@@ -31,12 +31,18 @@ OZob_to_MZob = LanguageChange(OldZobrozhne, MiddleZobrozhne,
         (V(Long), V(-Long)),
     ),
 
-    ('Palatalized A Shift',
-        (V(Open), V(Open_mid, Front), (C(Palatalized), Pos)),
-        (V(Open), V(Open_mid, Front), ('j', Pos)),
+    ('Depalatalization',
+        ((C(Palatalized), C(Palatalized), C(Palatalized)), (C(-Palatalized), C(-Palatalized), C(-Palatalized)), (Pos, V(Open))),
+        ((C(Palatalized), C(Palatalized)), (C(-Palatalized), C(-Palatalized)), (Pos, V(Open))),
+        (C(Palatalized), C(-Palatalized), (Pos, V(Open))),
+    ),
+
+    ('Cluster Simplification',
+        (C(Nasal), C(Plosive), (End, Pos, C(Trill)))
     ),
 
     ('Middle Zobrozhne Palatal Change',
+        (V(Central, Mid), V(Front, Close), (C(Palatalized), Pos)),
         (C(Alveolar, Palatalized, Nasal), C(-Palatalized, Palatal)),
         (C(Alveolar, Palatalized, -Trill, -Plosive), C(-Palatalized, Alveopalatal)),
         (C(Alveolar, Palatalized, Plosive), C(-Palatalized, Affricate, Alveopalatal)),
@@ -49,4 +55,5 @@ OZob_to_MZob = LanguageChange(OldZobrozhne, MiddleZobrozhne,
     ('Intervocalic Lenition',
         (C(Fricative, -Postalveolar, -Voiced), C(Voiced), (V, Pos, V(-Stressed)))
     ),
+
 )

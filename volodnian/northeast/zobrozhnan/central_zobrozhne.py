@@ -39,4 +39,9 @@ MZob_to_CZob = LanguageChange(MiddleZobrozhne, CentralZobrozhne,
         (C(Palatalized), (C(-Palatalized), 'j'), (Pos, V)),
         (C(Palatalized), C(-Palatalized)),
     ),
+
+    ('Backward Voicing Assimilation',
+        (C(Voiced, -Trill, -Approximant, -Nasal, -Lateral), C(-Voiced), (C(-Voiced), Pos)),
+        (C(-Voiced, -Trill, -Approximant, -Nasal, -Lateral), C(Voiced), (C(Voiced), Pos))
+    ),
 )
