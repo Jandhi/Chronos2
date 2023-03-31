@@ -9,14 +9,14 @@ SVol_to_OKar = LanguageChange(SouthVolodnian, OldKarosan,
     ),
 
     ('Karosan Consonant Shift',
-        (C(Plosive, -Voiced), C(Aspirated)),
+        (C(Plosive, -Voiced), C(Aspirated), Pos, (Pos, C(Fricative))),
         (C(Plosive, Voiced), C(-Voiced)),
         (C(Fricative, Voiced, -Postalveolar), C(Plosive)),
     ),
 
     ('Karosan Spirant Shift',
         (C(Alveolar, Fricative), None, (V, Pos, V)),
-        (C(Alveolar, Fricative), C(Glottal)),
+        (C(Alveolar, Fricative), C(Glottal), Pos, (C(Plosive), Pos)),
         (C(Postalveolar), C(Alveolar)),
         (C(Velar, Fricative), C(Postalveolar)),
     ),
@@ -37,6 +37,10 @@ SVol_to_OKar = LanguageChange(SouthVolodnian, OldKarosan,
         (C(Palatal, Approximant), None, (V, Pos, V)),
         (C(Palatal, Approximant), 'i', (Pos, V))
     ),
+    
+    ('Cluster Shift',
+        ((C(Alveolar, Plosive), C(Bilabial, Plosive)), 'pt', (End, Pos))
+    )
 
     #('Weak High Vowel Loss',
     #    (V(Close, -Long), None, (End, C, Pos, C, A(V(-Close), V(Long)))),
