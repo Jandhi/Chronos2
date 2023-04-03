@@ -1,14 +1,23 @@
-mod sound_change;
-mod matchable;
-mod category;
-mod phone;
+pub mod sound_change;
+pub mod matchable;
+pub mod phonology {
+    pub mod feature;
+    pub mod phone;
+    pub mod vowel;
+}
+pub mod category;
+pub mod rule;
+pub mod result;
 
-use sound_change::sound_change;
+use category::MakeVowel as V;
 
-use crate::{category::Category, matchable::Matchable};
+use crate::phonology::{
+    vowel::Height::*, 
+    vowel::Backness::*,
+
+    feature::Feature::*,
+};
 
 fn main() {
     println!("Hello, world!");
-
-    let x = sound_change("").target(vec![]);
 }
