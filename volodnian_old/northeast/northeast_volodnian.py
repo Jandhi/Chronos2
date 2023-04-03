@@ -1,9 +1,9 @@
 from core.language import Language, LanguageChange
-from volodnian.greater_volodnian import GreaterVolodnian
+from volodnian.eastern_volodnian import EasternVolodnian
 from core.chronos import *
 
 NortheastVolodnian = Language('Northeast Volodnian', 'NEVol')
-GVol_to_NEVol = LanguageChange(GreaterVolodnian, NortheastVolodnian,
+GVol_to_NEVol = LanguageChange(EasternVolodnian, NortheastVolodnian,
     ('Diphthong Merger',
         (V(Close_mid), 'a', (Pos, V)),
     ),

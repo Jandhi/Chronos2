@@ -64,6 +64,8 @@ SIPA = orth(
         ('ʉ', V(Close, Central, Rounded)),
         ('ə', V(Mid, Central)),
         ('a', V(Open, Central)),
+        ('ɜ', V(Open_mid, Central)),
+        ('ɞ', V(Open_mid, Central, Rounded)),
 
         # Back
         ('ɯ', V(Close, Back)),

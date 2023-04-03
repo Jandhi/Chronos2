@@ -1,9 +1,9 @@
 from core.language import Language, LanguageChange
-from volodnian.greater_volodnian import GreaterVolodnian
+from volodnian.eastern_volodnian import EasternVolodnian
 from core.chronos import *
 
 SouthwestVolodnian = Language('Southwest Volodnian', 'SWVol')
-GVol_to_SWVol = LanguageChange(GreaterVolodnian, SouthwestVolodnian,
+GVol_to_SWVol = LanguageChange(EasternVolodnian, SouthwestVolodnian,
     ('Syncope',
         (V(-Long), None, (V, C, Pos, C, V)),
     ),
