@@ -1,23 +1,11 @@
-pub mod sound_change;
-pub mod matchable;
-pub mod phonology {
-    pub mod feature;
-    pub mod phone;
-    pub mod vowel;
-}
-pub mod category;
-pub mod rule;
-pub mod result;
+use phonology::{word::Word, vowel::Vowel};
+use sipa::SIPA;
 
-use category::MakeVowel as V;
-
-use crate::phonology::{
-    vowel::Height::*, 
-    vowel::Backness::*,
-
-    feature::Feature::*,
-};
+mod phonology;
+mod chronology;
+mod orthography;
+mod sipa;
 
 fn main() {
-    println!("Hello, world!");
+    
 }
